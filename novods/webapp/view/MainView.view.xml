@@ -1,0 +1,30 @@
+<mvc:View controllerName="novods.novods.controller.MainView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<Page id="page" title="{i18n>title}" showHeader="false">
+				<content>
+					<f:SimpleForm id="SimpleFormDS" editable="true" layout="ResponsiveGridLayout" title="Digital Signature" labelSpanXL="4" labelSpanL="3"
+						labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Comment"/>
+							<TextArea id="InputComment" value="{Comment}"/>
+							<Label text="Auth Group"/>
+							<Input id="InputAuthGroup" editable="false" value="{AuthGroup}"/>
+							<Label text="Remark"/>
+							<Input id="InputRemark" editable="false" value="{Remark}"/>
+							<Label text="Signatory"/>
+							<Input id="InputSignatory" editable="false" value="{Signatory}"/>
+							<Label text="Password"/>
+							<Input id="InputPassword" type="Password" value="{Password}"/>
+							<Label/>
+							<Button text="Cancel" press="onPressCancel"/>
+							<Button text="Save" type="Emphasized" press="onPressSave"/>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

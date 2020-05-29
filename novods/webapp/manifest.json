@@ -1,0 +1,113 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "novods.novods",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"DigiSignService": {
+				"uri": "/sap/opu/odata/sap/Z_DIGISIG_SRV/",
+				"type": "OData"
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "novods.novods.view.MainView",
+			"type": "XML",
+			"async": true,
+			"id": "MainView"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "novods.novods.i18n.i18n"
+				}
+			},
+			"DigiSignModel": {
+				"dataSource": "DigiSignService",
+				"preload": true,
+				"settings": {
+					"useBatch": false,
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"refreshAfterChange": false,
+					"metadataUrlParams": {
+						"sap-value-list": "none"
+					}
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "novods.novods.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteMainView",
+				"pattern": "RouteMainView",
+				"target": ["TargetMainView"]
+			}],
+			"targets": {
+				"TargetMainView": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "MainView",
+					"viewName": "MainView"
+				}
+			}
+		}
+	}
+}

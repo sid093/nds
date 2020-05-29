@@ -1,0 +1,38 @@
+ID: novo
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: novods
+   type: html5
+   path: novods
+   parameters:
+      disk-quota: 512M
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_novo
+    - name: dest_novo
+    - name: connectivity
+
+resources:
+ - name: uaa_novo
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+   type: org.cloudfoundry.managed-service
+
+ - name: dest_novo
+   parameters:
+      service-plan: lite
+      service: destination
+   type: org.cloudfoundry.managed-service
+   
+ - name: connectivity
+   parameters:
+      service-plan: lite
+      service: connectivity
+   type: org.cloudfoundry.managed-service
+
