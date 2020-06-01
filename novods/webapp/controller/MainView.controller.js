@@ -15,14 +15,13 @@ sap.ui.define([
 			that = this;
 
 			// Set URL Parameters if any
-			var sRemark = jQuery.sap.getUriParameters().get("Remark");
 			var sApplication = jQuery.sap.getUriParameters().get("Application");
 			var sDocument = jQuery.sap.getUriParameters().get("Document");
 			var sJSONData = jQuery.sap.getUriParameters().get("JSONData");
 			var sComment = jQuery.sap.getUriParameters().get("Comment") || "";
 
 			// Required Params
-			if (!sRemark || !sApplication || !sDocument || !sJSONData) {
+			if (!sApplication || !sDocument || !sJSONData) {
 				that.showMessageError("Initial Params required.");
 			}
 			
@@ -39,7 +38,7 @@ sap.ui.define([
 				"Application": sApplication,
 				"Document": sDocument,
 				"AuthGroup": "",
-				"Remark": sRemark,
+				"Remark": "Document " + sDocument + " updated.",
 				"Comment": sComment,
 				"Signatory": "",
 				"Password": "",
