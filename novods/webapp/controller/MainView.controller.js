@@ -19,6 +19,7 @@ sap.ui.define([
 			var sDocument = jQuery.sap.getUriParameters().get("Document");
 			var sJSONData = jQuery.sap.getUriParameters().get("JSONData");
 			var sComment = jQuery.sap.getUriParameters().get("Comment") || "";
+			var sRemark = jQuery.sap.getUriParameters().get("Remark") || "Document " + sDocument + " updated.";
 
 			// Required Params
 			if (!sApplication || !sDocument || !sJSONData) {
@@ -38,7 +39,7 @@ sap.ui.define([
 				"Application": sApplication,
 				"Document": sDocument,
 				"AuthGroup": "",
-				"Remark": "Document " + sDocument + " updated.",
+				"Remark": sRemark,
 				"Comment": sComment,
 				"Signatory": "",
 				"Password": "",
